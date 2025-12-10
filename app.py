@@ -6,24 +6,24 @@ import os
 from dotenv import load_dotenv
 from extensions import db, ma
 
-# Load environment variables from .env file
+
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app) 
 
-# Get database credentials from environment variables
+
 DB_USER = os.getenv("DB_USER", "root")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "")
 DB_HOST = os.getenv("DB_HOST", "localhost")
 DB_PORT = os.getenv("DB_PORT", "3306")
-DB_NAME = os.getenv("DB_NAME", "jop_hub") # Updated default to match likely intended db name
+DB_NAME = os.getenv("DB_NAME", "jop_hub")
 
-# Configure SQLAlchemy connection URI
+
 app.config['SQLALCHEMY_DATABASE_URI'] = (
     f"mysql+mysqlconnector://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 )
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Disable tracking modifications
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  
 
 
 
