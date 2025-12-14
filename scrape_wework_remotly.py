@@ -43,7 +43,7 @@ def scrape_jobs(max_pages=1):
                     "company": company,
                     "category": category,
                     "location": location,
-                    "url": job_url
+                    "url": job_url                
                 })
     
     print(jobs)
